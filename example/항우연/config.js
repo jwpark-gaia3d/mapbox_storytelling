@@ -23,17 +23,17 @@ var config = {
                 bearing: -43.58
             },
             onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
+ //               {
+//                     layer: 'kari',
+//                     opacity: 1
+//                     duration: 5000
+//                 }
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+ //                {
+ //                    layer: 'kari',
+ //                    opacity: 0
+//                 }
             ]
         },
         {
