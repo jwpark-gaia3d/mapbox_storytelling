@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>map zoom_level</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #position {
+            position:absolute; top:0; height: 23px; width: 110px;
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+
+<div id='map'></div>
+<div id="position"></div>
+
+<script>
+    var position = document.getElementById("position");
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic3dhdDAxOCIsImEiOiJja2FleDcyZnQwN2dvMnFuZmx3c2pidzd1In0.W_55REjgA4nRr5CfyjO4cA';
+    var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'mapbox://styles/swat018/ckanavwp81ocy1ipbumtu4gv9', // stylesheet location
+        center: [-74.50, 40], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+        pitch: 45,
+        bearing: -40
+    });
+
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    }));
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    map.on("load", function() {
+        updatePosition();
+    });
+
+    map.on("moveend", function() {
+        updatePosition()
+    });
+
+    var updatePosition = function() {
+        var settings = 'zoom: ' + map.getZoom().toFixed(2) + '\n'
+
+        position.innerText = settings;
+    };
+</script>
+
+</body>
+</html>

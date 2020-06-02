@@ -5,9 +5,9 @@ var config = {
     markerColor: '#3FB1CE',
     theme: 'dark',
     alignment: 'right',
- //   title: '한국항공우주연구원',
- //   subtitle: 'A descriptive and interesting subtitle to draw in the reader',
- //   byline: 'By a Digital Storyteller',
+    title: '한국항공우주연구원(KARI)',
+    subtitle: '하늘과 우주를 향한 도전, KARI',
+//    byline: 'By a Digital Storyteller',
     footer: 'Copyrights (c)2019 All rights reserved by Gaia3D,Inc.\n',
     chapters: [
         {
@@ -23,7 +23,7 @@ var config = {
                 bearing: -43.58
             },
             onChapterEnter: [
- //               {
+//                {
 //                     layer: 'kari',
 //                     opacity: 1
 //                     duration: 5000
